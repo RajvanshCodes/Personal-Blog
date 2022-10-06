@@ -1,0 +1,33 @@
+{% extends 'blog/base.html' %}
+{%load static %}
+{%load social_share%}
+<link rel="stylesheet" href="{% static 'polls/style.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+{% block content %}
+
+    {% for posts in posts %}
+        <article class="media content-section">
+            <img class="rounded-cirlce article-img" src="{{ posts.author.profile.image.url }}" alt="">
+            <div class="media-body">
+              <div class="article-metadata post-header" >
+                <div class="author-stamp">
+                <a class="mr-2" href="#">{{ posts.author }}</a>
+                <small class="text-muted">{{ posts.date_posted }}</small>
+                </div>
+                <div class="social-media " >
+                    <a href=""><img src="../../media/icons/like.png" alt="Like" width="20px"/> </a>
+
+
+                    <a href="">{%post_to_twitter "hi" object_or_url '<img src="../../media/icons/share.png" alt="share" id="share" width="20px"/>'%} </a>
+
+
+                    <a href=""><img src="../../media/icons/comment.png" alt="Comment" width="20px"/></a>
+                </div>
+              </div>
+              <h2><a class="article-title" href="{% url 'blog-detail' posts.id %}">{{ posts.title }}</a></h2>
+              <p class="article-content">{{ posts.content }}</p>
+            </div>
+            <br>
+          </article>
+    {% endfor  %}
+{% endblock content %}

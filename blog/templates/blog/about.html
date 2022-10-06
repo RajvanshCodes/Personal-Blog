@@ -1,0 +1,22 @@
+{% extends 'blog/base.html' %} {%load static %}
+<link rel="stylesheet" href="{% static 'polls/style.css' %}" />
+{% block content %}
+<div
+  class="container"
+  style="
+    background: white;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 20px;
+  "
+>
+  <h1 class="about-header">
+    Walk with ME
+    <span id="blog-text" style="font-size: 10px">Personal Blog</span>
+  </h1>
+  <p class="about-text">
+    This blog is made by the collective effort of Mahiwal, Ankit, Biswajeet,
+    Yashas and Shuaib
+  </p>
+</div>
+{% endblock content %}
